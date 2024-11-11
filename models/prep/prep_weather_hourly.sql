@@ -8,7 +8,7 @@ add_features AS (
 		, timestamp::TIME AS time -- only time (hours:minutes:seconds) as TIME data type
         , TO_CHAR(timestamp,'HH24:MI') as hour -- time (hours:minutes) as TEXT data type
         , TO_CHAR(timestamp, 'FMmonth') AS month_name -- month name as a text
-        , TO_CHAR(date, 'FMDay') AS weekday -- weekday name as text        
+        , TO_CHAR(timestamp, 'FMDay') AS weekday -- weekday name as text        
         , DATE_PART('day', timestamp) AS date_day
 		, DATE_PART('month', timestamp) AS date_month
 		, DATE_PART('year',timestamp) AS date_year
