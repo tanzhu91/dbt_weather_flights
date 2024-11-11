@@ -8,8 +8,8 @@ add_features AS (
         , DATE_PART('month', date) AS date_month
         , DATE_PART('year', date) AS date_year
         , DATE_PART('week', date) AS cw
-        , TO_CHAR(date, 'Month') AS month_name
-        , TO_CHAR(date, 'Day') AS weekday
+        , TO_CHAR(date, 'FMMonth') AS month_name
+        , TO_CHAR(date, 'FMDay') AS weekday
     FROM daily_data 
 ),
 add_more_features AS (
