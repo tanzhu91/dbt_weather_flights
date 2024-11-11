@@ -23,5 +23,4 @@ add_more_features AS (
     FROM add_features
 )
 SELECT *
-FROM add_more_features
-ORDER BY date;
+FROM add_more_features;
