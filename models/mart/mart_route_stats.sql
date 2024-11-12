@@ -11,7 +11,7 @@ WITH route_stats AS (
         MIN(arr_delay) AS min_arrival_delay,
         SUM(cancelled) AS total_cancelled,
         SUM(diverted) AS total_diverted
-    FROM prep_flights
+    FROM {{ref('prep_flights')}}
     GROUP BY origin, dest
 ),
 origin_airport AS (
@@ -20,7 +20,7 @@ origin_airport AS (
         city AS origin_city, 
         country AS origin_country, 
         name AS origin_name
-    FROM prep_airports
+    FROM {{ref('prep_airports')}}
 ),
 destination_airport AS (
     SELECT 
@@ -28,7 +28,7 @@ destination_airport AS (
         city AS dest_city, 
         country AS dest_country, 
         name AS dest_name
-    FROM prep_airports
+    FROM {{ref('prep_airports')}}
 )
 SELECT 
     origin_faa AS origin_airport_code, 
